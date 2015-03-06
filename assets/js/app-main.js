@@ -47,6 +47,7 @@ require.config({
 		router          : 'js/router',
 
 		// CONTROLLER
+		category        : dirTema+'assets/js/pages/category',
 		home            : dirTema+'assets/js/pages/home',
 		main            : dirTema+'assets/js/pages/default',
 		member          : dirTema+'assets/js/pages/member',
@@ -59,6 +60,9 @@ require([
 	'main',
 ], function(router,b,main)
 {
+	// CATEGORY
+	router.define('category/*', 'category@run');
+
 	// HOME
 	router.define('/','home@run');
 	router.define('home', 'home@run');

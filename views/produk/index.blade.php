@@ -158,7 +158,7 @@
                         <!-- TOVAR -->
                         <div class="tovar_wrapper col-lg-4 col-md-4 col-sm-6 col-xs-6 col-ss-12 padbot40">
                             <div class="tovar_item {{is_terlaris($myproduk) ? 'tovar_sale':''}} {{is_outstok($myproduk) ? 'tovar_stok':''}} clearfix" style="max-height: 420px;">
-                                <div class="tovar_img" style="height: 370px;">
+                                <div class="tovar_img" style="min-height: 270px;">
                                     <div class="tovar_img_wrapper">
                                         {{HTML::image(getPrefixDomain().'/produk/'.$myproduk->gambar1, $myproduk->nama, array('class' => 'img'))}}
                                         {{HTML::image(getPrefixDomain().'/produk/'.$myproduk->gambar2, $myproduk->nama, array('class' => 'img_h'))}}
@@ -169,7 +169,7 @@
                                 </div>
                                 <div class="tovar_description clearfix">
                                     <a class="tovar_title" href="{{slugProduk($myproduk)}}" style="min-height: 48px;">{{strtoupper($myproduk->nama)}}</a>
-                                    <span class="tovar_price">{{jadiRupiah($myproduk->hargaJual)}}</span>
+                                    <span class="tovar_price" style="min-width: 64px;">{{jadiRupiah($myproduk->hargaJual)}}</span>
                                 </div>
                                 <div class="tovar_content">{{shortDescription($myproduk->deskripsi,100)}}</div>
                             </div>
