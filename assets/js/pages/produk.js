@@ -97,6 +97,7 @@ define(['jquery','jq_ui','bootstrap','jq_carousel','jq_flexslider','noty'], func
 								//$('.add_cart').button('reset');
 
 							}).done(function(){
+								shoppingCart();
 								fluidDialog();
 							}).error(function(){
 								noty({"text":'Opps, something error. please try again.',"layout":"center","type":'error','speed': 100});		
@@ -171,6 +172,8 @@ define(['jquery','jq_ui','bootstrap','jq_carousel','jq_flexslider','noty'], func
 						$( "#cart_dialog" ).dialog('close');	
 					}).done(function(){
 						noty({"text":'Produk dalam keranjang berhasil di hapus.',"layout":"center","type":'success','speed': 100});	
+						$('.shopping_bag .cart').slideUp(1);
+						shoppingCart();
 					}).error(function(){
 						noty({"text":'Opps, terjadi kesalahan.',"layout":"center","type":'error','speed': 100});		
 					});	
@@ -323,5 +326,16 @@ define(['jquery','jq_ui','bootstrap','jq_carousel','jq_flexslider','noty'], func
 		    return rs;
 		};
 
+		var shoppingCart = function(){
+			/*-----------------------------------------------------------------------------------*/
+			/*	SHOPPING BAG
+			/*-----------------------------------------------------------------------------------*/
+			$(document).ready(function() {
+				$('.shopping_bag_btn').click(function(){
+					$('.shopping_bag .cart').slideToggle();
+					$('.shopping_bag .cart').parent().toggleClass('cart_active');
+				});
+			});	    	
+	    };
 	}
 });

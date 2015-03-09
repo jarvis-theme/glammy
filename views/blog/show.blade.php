@@ -11,7 +11,7 @@
     <h3 class="pull-left"><b>Blog Post</b></h3>
     
     <div class="pull-right">
-      <a href="women.html" >Back to shop<i class="fa fa-angle-right"></i></a>
+      <a href="{{URL::to('/')}}" >Back to shop<i class="fa fa-angle-right"></i></a>
     </div>
   </div><!-- //CONTAINER -->
 </section><!-- //PAGE HEADER -->
@@ -29,16 +29,15 @@
       <div class="col-lg-9 col-md-9 col-sm-9">
         
         <article class="post blog_post clearfix margbot20" data-appear-top-offset='-100' data-animated='fadeInUp'>
-          <div class="post_title" href="blog-post.html" >{{$detailblog->judul}}</div>
+          <div class="post_title" >{{$detailblog->judul}}</div>
           <ul class="post_meta">
             <li><i class="fa fa-user"></i><a href="javascript:void(0);" >{{$detailblog->kategori->nama}}</a></li>
-            <li><i class="fa fa-date"></i>Date <span class="sep">|</span> {{date("d M Y", strtotime($detailblog->updated_at))}}</li>
+            <li><i class="fa fa-calendar"></i><span class="sep">|</span> {{date("d M Y", strtotime($detailblog->updated_at))}}</li>
           </ul>
           
           <div class="blog_post_content">
             {{$detailblog->isi}}
-          </div>
-          
+          </div>          
         </article>
         
         <div class="shared_tags_block clearfix" data-appear-top-offset='-100' data-animated='fadeInUp'>
@@ -47,13 +46,19 @@
           </div>
           
           <div class="pull-right tovar_shared clearfix">
-            <p>Share item with friends</p>
+            <p>Share item with friends &nbsp;</p>
             <ul>
+              <!--
               <li><a class="facebook" href="javascript:void(0);" ><i class="fa fa-facebook"></i></a></li>
               <li><a class="twitter" href="javascript:void(0);" ><i class="fa fa-twitter"></i></a></li>
               <li><a class="linkedin" href="javascript:void(0);" ><i class="fa fa-linkedin"></i></a></li>
               <li><a class="google-plus" href="javascript:void(0);" ><i class="fa fa-google-plus"></i></a></li>
               <li><a class="tumblr" href="javascript:void(0);" ><i class="fa fa-tumblr"></i></a></li>
+              -->
+
+              <iframe src="//www.facebook.com/plugins/share_button.php?href={{URL::to('blog/'.$detailblog->slug)}}&amp;layout=button" scrolling="no" frameborder="0" style="border:none; overflow:hidden; height:20px; margin-right:10px !important;" allowTransparency="true"></iframe>
+              <a class="twitter-share-button" href="https://twitter.com/share" data-count="none">Tweet </a>
+              <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
             </ul>
           </div>
         </div>
@@ -147,8 +152,6 @@
               <span class="tovar_item_small_price">{{price($item->hargaJual)}}</span>
             </li>
             @endforeach 
-            
-
           </ul>
         </div><!-- //WIDGET BEST SELLERS -->
         
